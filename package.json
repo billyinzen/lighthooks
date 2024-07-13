@@ -1,0 +1,22 @@
+{
+  "name": "light-hooks",
+  "version": "1.0.0",
+  "description": "Testing lighter webhooks",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/billyinzen/lighthooks.git"
+  },
+  "author": "billyinzen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/billyinzen/lighthooks/issues"
+  },
+  "homepage": "https://github.com/billyinzen/lighthooks#readme",
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2"
+  }
+}
