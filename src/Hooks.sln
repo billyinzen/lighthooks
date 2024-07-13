@@ -34,6 +34,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{
 		..\.github\workflows\commit-linting.yml = ..\.github\workflows\commit-linting.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Worker", "Hooks.Worker\Hooks.Worker.csproj", "{9A904FC0-99E1-4231-9F43-0B1A18D0F504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Worker.Tests", "Hooks.Worker.Tests\Hooks.Worker.Tests.csproj", "{32F9E0E6-E243-422E-8E33-504BCE0681FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{415CD503-8AFA-4110-BA68-524632184ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{415CD503-8AFA-4110-BA68-524632184ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{415CD503-8AFA-4110-BA68-524632184ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A904FC0-99E1-4231-9F43-0B1A18D0F504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A904FC0-99E1-4231-9F43-0B1A18D0F504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A904FC0-99E1-4231-9F43-0B1A18D0F504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A904FC0-99E1-4231-9F43-0B1A18D0F504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32F9E0E6-E243-422E-8E33-504BCE0681FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32F9E0E6-E243-422E-8E33-504BCE0681FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32F9E0E6-E243-422E-8E33-504BCE0681FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32F9E0E6-E243-422E-8E33-504BCE0681FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5744C1C2-64B3-40B4-A7B9-B8DEDDB1A3F5} = {9255FBD3-1188-4878-A080-04BCCC74C9F5}

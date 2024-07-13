@@ -1,4 +1,4 @@
-namespace Hooks.Service;
+namespace Hooks.Worker;
 
 public class Worker : BackgroundService
 {
