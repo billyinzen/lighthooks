@@ -15,6 +15,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Service", "Hooks.Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Service.Tests", "Hooks.Service.Tests\Hooks.Service.Tests.csproj", "{415CD503-8AFA-4110-BA68-524632184ACE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9255FBD3-1188-4878-A080-04BCCC74C9F5}"
+	ProjectSection(SolutionItems) = preProject
+		..\package.json = ..\package.json
+		..\readme.md = ..\readme.md
+		..\.gitignore = ..\.gitignore
+		..\.gitattributes = ..\.gitattributes
+		..\.commitlintrc.yml = ..\.commitlintrc.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{5744C1C2-64B3-40B4-A7B9-B8DEDDB1A3F5}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\codeowners = ..\.github\codeowners
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{5BDE4EF6-A62D-429B-82A3-1D04D7E35066}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\commit-linting.yml = ..\.github\workflows\commit-linting.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +67,9 @@ Global
 		{415CD503-8AFA-4110-BA68-524632184ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{415CD503-8AFA-4110-BA68-524632184ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{415CD503-8AFA-4110-BA68-524632184ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5744C1C2-64B3-40B4-A7B9-B8DEDDB1A3F5} = {9255FBD3-1188-4878-A080-04BCCC74C9F5}
+		{5BDE4EF6-A62D-429B-82A3-1D04D7E35066} = {5744C1C2-64B3-40B4-A7B9-B8DEDDB1A3F5}
 	EndGlobalSection
 EndGlobal
