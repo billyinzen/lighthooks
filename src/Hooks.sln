@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Common", "Hooks.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Common.Tests", "Hooks.Common.Tests\Hooks.Common.Tests.csproj", "{9F6E6155-DC41-4771-9323-2498522CE69F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Package", "Hooks.Package\Hooks.Package.csproj", "{1F9C61CD-94E3-4208-BBCA-5310077D79A7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Package.Tests", "Hooks.Package.Tests\Hooks.Package.Tests.csproj", "{CB84CE08-909A-43FB-8E19-31F404241BD8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Service", "Hooks.Service\Hooks.Service.csproj", "{956A4A6F-9921-4835-B874-1B5E9106640A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Service.Tests", "Hooks.Service.Tests\Hooks.Service.Tests.csproj", "{415CD503-8AFA-4110-BA68-524632184ACE}"
@@ -55,14 +51,6 @@ Global
 		{9F6E6155-DC41-4771-9323-2498522CE69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F6E6155-DC41-4771-9323-2498522CE69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F6E6155-DC41-4771-9323-2498522CE69F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F9C61CD-94E3-4208-BBCA-5310077D79A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F9C61CD-94E3-4208-BBCA-5310077D79A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F9C61CD-94E3-4208-BBCA-5310077D79A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F9C61CD-94E3-4208-BBCA-5310077D79A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB84CE08-909A-43FB-8E19-31F404241BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB84CE08-909A-43FB-8E19-31F404241BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB84CE08-909A-43FB-8E19-31F404241BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB84CE08-909A-43FB-8E19-31F404241BD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{956A4A6F-9921-4835-B874-1B5E9106640A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{956A4A6F-9921-4835-B874-1B5E9106640A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{956A4A6F-9921-4835-B874-1B5E9106640A}.Release|Any CPU.ActiveCfg = Release|Any CPU

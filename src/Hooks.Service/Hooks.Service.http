@@ -1,6 +1,0 @@
-@Hooks.Service_HostAddress = http://localhost:5157
-
-GET {{Hooks.Service_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

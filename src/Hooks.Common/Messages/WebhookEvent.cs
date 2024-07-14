@@ -35,6 +35,11 @@ public class WebhookEvent
     public string EventType { get; private set; }
     
     /// <summary>
+    /// The URI for the location from which the user can fetch the information referenced in this webhook. 
+    /// </summary>
+    public string CallbackUri { get; private set; }
+    
+    /// <summary>
     /// The date and time on which this message was created.
     /// </summary>
     public DateTimeOffset EventTime { get; } = DateTimeOffsetProvider.Now;
@@ -46,12 +51,14 @@ public class WebhookEvent
     /// <param name="entityId">The unique identifier of the entity associated with this message.</param>
     /// <param name="entityType">The type of entity associated with this message.</param>
     /// <param name="eventType">The type of event associated with this message.</param>
-    public WebhookEvent(string customerId, string entityId, string entityType, string eventType)
+    /// <param name="uri">The URI for the location from which the user can fetch the information referenced in this webhook.</param>
+    public WebhookEvent(string customerId, string entityId, string entityType, string eventType, string uri)
     {
         CustomerId = customerId;
         EntityId = entityId;
         EntityType = entityType;
         EventType = eventType;
+        CallbackUri = uri;
     }
 
     /// <summary>
@@ -62,8 +69,9 @@ public class WebhookEvent
     /// <param name="entityId">The unique identifier of the entity associated with this message.</param>
     /// <param name="entityType">The type of entity associated with this message.</param>
     /// <param name="eventType">The type of event associated with this message.</param>
-    public WebhookEvent(string customerId, IEnumerable<string> officeIds, string entityId, string entityType, string eventType)
-        : this(customerId, entityId, entityType, eventType)
+    /// <param name="uri">The URI for the location from which the user can fetch the information referenced in this webhook.</param>
+    public WebhookEvent(string customerId, IEnumerable<string> officeIds, string entityId, string entityType, string eventType, string uri)
+        : this(customerId, entityId, entityType, eventType, uri)
     {
         OfficeIds = officeIds;
     }
