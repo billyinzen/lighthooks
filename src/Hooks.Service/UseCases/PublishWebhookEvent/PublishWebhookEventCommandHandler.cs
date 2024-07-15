@@ -37,7 +37,7 @@ public class PublishWebhookEventCommandHandler : IRequestHandler<PublishWebhookE
             entityId: request.EntityId, 
             entityType: topic.First(), 
             eventType: topic.Last(), 
-            uri: request.Uri);
+            callbackUri: request.Uri);
         
         // Publish the message
         _logger.LogDebug("Writing Message to Queue: {json}", JsonSerializer.Serialize(message));

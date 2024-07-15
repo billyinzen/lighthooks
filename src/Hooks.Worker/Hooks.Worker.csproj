@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-Hooks.Worker-1777b2fb-03eb-45d3-b346-04acb37caca6</UserSecretsId>
+    <UserSecretsId>7b1f250f-5d6e-4301-a4fe-2e0320b2a786</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
