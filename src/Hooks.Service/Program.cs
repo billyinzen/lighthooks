@@ -8,19 +8,16 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args);
-        builder.Configuration.AddConfiguration(new ConfigurationBuilder().AddEnvironmentVariables().Build());
-
-        builder.Host.UseSerilog((context, configuration) =>
-            configuration.ReadFrom.Configuration(context.Configuration));
+        var builder = WebApplication.CreateBuilder(args)
+            .AddConfiguredLogging()
+            .AddConfiguredServices()
+            .AddConfiguredSwagger()
+            .AddConfiguredRouting();
         
-        builder.Services.AddConfiguredServices()
-            .AddHooksServices(builder.Configuration);
-        
-        var app = builder.Build();
-
-        app.UseSerilogRequestLogging();
-        app.UseConfiguredApplication();
+        var app = builder.Build()
+            .UseConfiguredLogging()
+            .UseConfiguredSwagger()
+            .UseConfiguredRouting();
         
         app.Run();
     }

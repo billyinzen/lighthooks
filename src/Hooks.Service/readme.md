@@ -1,5 +1,23 @@
 # Hooks Service
 
-API using [Hooks.Package](../Hooks.Package/readme.md) to push messages to the queue.
+The Hooks.Service API exposes a single endpoint allowing users to push a message into the webhooks queue.
 
-In development, also starts an instance of [Hooks.Worker](../Hooks.Worker/readme.md) to read messages from the queue.
+## POST /
+
+Push a message representing a system change to the webhooks queue.
+> Note: `officeIds` may also be `null` or omitted entirely.
+
+```json
+// PublishWebhookEventRequestModel
+{
+    "customerId": "BOB",
+    "entityId": "LDN240012",
+    "topic": "property.created",
+    "uri": "https://www.webhook-recipient.net/customer/BOB",
+    "officeIds": [
+        "LDN",
+        "BIR",
+        "MAN"
+    ]
+}
+```
