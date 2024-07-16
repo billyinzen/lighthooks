@@ -1,6 +1,6 @@
 using FluentValidation;
+using Hooks.Service.Infrastructure.Middleware.Models;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Hooks.Service.Infrastructure.Middleware;
 
@@ -18,25 +18,9 @@ public class ValidationExceptionHandler : IExceptionHandler
         
         _logger.LogInformation("Validation Failed: {message}", exception.Message);
 
-        var errors = validationException.Errors
-            .GroupBy(e => e.PropertyName)
-            .ToDictionary(
-                keySelector: grouping => grouping.Key,
-                elementSelector: grouping => grouping.Select(failure => failure.ErrorMessage).Distinct());
+        var problem = ValidationErrorModel.FromException(validationException);
         
-        var problem = new ProblemDetails
-        {
-            Status = 422,
-            Title = "Validation failed",
-            Detail = "One or more of the provided values have failed validation.",
-            Type = "http://reapit.hooks.service/problems/validation",
-            Extensions = new Dictionary<string, object?>
-            {
-                { "Errors", errors }
-            }
-        };
-        
-        httpContext.Response.StatusCode = problem.Status.GetValueOrDefault();
+        httpContext.Response.StatusCode = problem.Status;
         await httpContext.Response.WriteAsJsonAsync(problem, cancellationToken: cancellationToken);
 
         return true;

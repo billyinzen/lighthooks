@@ -1,5 +1,5 @@
+using Hooks.Service.Infrastructure.Middleware.Models;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Hooks.Service.Infrastructure.Middleware;
 
@@ -14,15 +14,9 @@ public class GenericExceptionHandler : IExceptionHandler
     {
         _logger.LogError("Exception occurred: {message}", exception.Message);
 
-        var problem = new ProblemDetails
-        {
-            Status = 500,
-            Title = "An error has occurred",
-            Detail = exception.Message,
-            Type = "http://reapit.hooks.service/problems/exception"
-        };
+        var problem = ErrorModel.FromException(exception);
         
-        httpContext.Response.StatusCode = problem.Status.GetValueOrDefault();
+        httpContext.Response.StatusCode = problem.Status;
         await httpContext.Response.WriteAsJsonAsync(problem, cancellationToken: cancellationToken);
 
         return true;

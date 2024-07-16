@@ -1,5 +1,3 @@
-using Serilog;
-using Hooks.Common;
 using Hooks.Service.Infrastructure;
 
 namespace Hooks.Service;
