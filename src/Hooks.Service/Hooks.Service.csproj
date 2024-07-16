@@ -7,6 +7,10 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <UserSecretsId>7b1f250f-5d6e-4301-a4fe-2e0320b2a786</UserSecretsId>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <InternalsVisibleTo Include="Hooks.Service.Tests" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
