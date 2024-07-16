@@ -1,28 +1,29 @@
+using System.Text;
+using System.Text.Json;
 using FluentValidation;
 using Hooks.Service.Infrastructure.Middleware.Models;
 using Microsoft.AspNetCore.Diagnostics;
 
 namespace Hooks.Service.Infrastructure.Middleware;
 
-public class ValidationExceptionHandler : IExceptionHandler
+/// <summary>Exception handler for validation exceptions</summary>
+/// <param name="logger">The logging service.</param>
+public class ValidationExceptionHandler(ILogger<ValidationExceptionHandler> logger) 
+    : IExceptionHandler
 {
-    private readonly ILogger<ValidationExceptionHandler> _logger;
-
-    public ValidationExceptionHandler(ILogger<ValidationExceptionHandler> logger)
-        => _logger = logger;
-
+    /// <inheritdoc />
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
         if (exception is not ValidationException validationException)
             return false;
         
-        _logger.LogInformation("Validation Failed: {message}", exception.Message);
+        logger.LogInformation("Validation Failed: {message}", exception.Message);
 
         var problem = ValidationErrorModel.FromException(validationException);
         
         httpContext.Response.StatusCode = problem.Status;
-        await httpContext.Response.WriteAsJsonAsync(problem, cancellationToken: cancellationToken);
-
+        await httpContext.Response.WriteAsJsonAsync(problem, cancellationToken);
+        
         return true;
     }
 }

@@ -3,16 +3,15 @@ using Microsoft.AspNetCore.Diagnostics;
 
 namespace Hooks.Service.Infrastructure.Middleware;
 
-public class GenericExceptionHandler : IExceptionHandler
+/// <summary>Exception handler for exceptions not caught by more specific handlers</summary>
+/// <param name="logger">The logging service.</param>
+public class GenericExceptionHandler(ILogger<GenericExceptionHandler> logger) 
+    : IExceptionHandler
 {
-    private readonly ILogger<GenericExceptionHandler> _logger;
-
-    public GenericExceptionHandler(ILogger<GenericExceptionHandler> logger)
-        => _logger = logger;
-
+    /// <inheritdoc />
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
-        _logger.LogError("Exception occurred: {message}", exception.Message);
+        logger.LogError("Exception occurred: {message}", exception.Message);
 
         var problem = ErrorModel.FromException(exception);
         

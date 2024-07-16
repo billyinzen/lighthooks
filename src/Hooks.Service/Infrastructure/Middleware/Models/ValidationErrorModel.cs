@@ -1,14 +1,14 @@
+using System.Text.Json.Serialization;
 using FluentValidation;
 
 namespace Hooks.Service.Infrastructure.Middleware.Models;
 
-/// <summary>
-/// Model representing a validation error
-/// </summary>
+/// <summary>Model representing a validation error</summary>
 public class ValidationErrorModel : ErrorModel
 {
     /// <summary>The validation errors</summary>
-    public Dictionary<string, IEnumerable<string>> Errors { get; internal init; } = new();
+    [JsonPropertyName("errors")]
+    public Dictionary<string, IEnumerable<string>> Errors { get; init; } = new();
 
     /// <summary>Creates a new instance of ValidationErrorModel representing a given <see cref="ValidationException"/> object.</summary>
     /// <param name="exception">The exception.</param>
