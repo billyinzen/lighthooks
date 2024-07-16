@@ -1,0 +1,47 @@
+name: Build and test
+on: [push]
+
+jobs:
+  build-solution:
+    name: Build all
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: restore solution
+        run: dotnet restore ./src/Hooks.sln
+      - name: build solution
+        run: dotnet build ./src/Hooks.sln --no-restore
+
+  test-common-project:
+    name: Test Common project
+    needs: build-solution
+    runs-on: ubuntu-latest
+    steps:
+      - name: test project
+        run: dotnet test ./src/Hooks.Common.Tests/Hooks.Common.Tests.csproj
+
+  test-service-project:
+    name: Test Service project
+    needs: build-solution
+    runs-on: ubuntu-latest
+    steps:
+      - name: test project
+        run: dotnet test ./src/Hooks.Service.Tests/Hooks.Service.Tests.csproj
+
+  test-worker-project:
+    name: Test Worker project
+    needs: build-solution
+    runs-on: ubuntu-latest
+    steps:
+      - name: test project
+        run: dotnet test ./src/Hooks.Worker.Tests/Hooks.Worker.Tests.csproj
+
+
+
+      
