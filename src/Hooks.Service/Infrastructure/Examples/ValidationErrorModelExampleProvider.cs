@@ -1,10 +1,16 @@
+using System.Diagnostics.CodeAnalysis;
 using Hooks.Service.Infrastructure.Middleware.Models;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace Hooks.Service.Infrastructure.Examples;
 
+/// <summary>
+/// Example provider for the <see cref="ValidationErrorModelExampleProvider"/> class
+/// </summary>
+[ExcludeFromCodeCoverage]
 public class ValidationErrorModelExampleProvider : IExamplesProvider<ValidationErrorModel>
 {
+    /// <inheritdoc />
     public ValidationErrorModel GetExamples()
         => new()
         {

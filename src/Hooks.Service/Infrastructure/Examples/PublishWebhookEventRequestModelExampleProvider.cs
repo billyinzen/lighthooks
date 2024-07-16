@@ -1,10 +1,16 @@
+using System.Diagnostics.CodeAnalysis;
 using Hooks.Service.Controllers.RequestModels;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace Hooks.Service.Infrastructure.Examples;
 
+/// <summary>
+/// Example provider for the <see cref="PublishWebhookEventRequestModel"/> class
+/// </summary>
+[ExcludeFromCodeCoverage]
 public class PublishWebhookEventRequestModelExampleProvider : IExamplesProvider<PublishWebhookEventRequestModel>
 {
+    /// <inheritdoc />
     public PublishWebhookEventRequestModel GetExamples()
         => new (
             CustomerId: "RPT",
