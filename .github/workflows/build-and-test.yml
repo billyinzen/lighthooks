@@ -17,6 +17,11 @@ jobs:
         run: dotnet restore ./src/Hooks.sln
       - name: build project
         run: dotnet build ./src/Hooks.sln --no-restore
+      - name: setup secrets
+        run: |
+          dotnet user-secrets set "AWS:REGION" "${{ secrets.AWS_REGION }}" --project ./src/Hooks.Common
+          dotnet user-secrets set "AWS:ACCESS_KEY_ID" "${{ secrets.AWS_ACCESS_KEY_ID }}" --project ./src/Hooks.Common
+          dotnet user-secrets set "AWS:SECRET_ACCESS_KEY" "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --project ./src/Hooks.Common
       - name: test project
         run: dotnet test ./src/Hooks.sln --no-build --logger trx --results-directory test-results --collect:"xplat code coverage"
       - name: upload test results
