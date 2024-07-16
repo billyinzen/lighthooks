@@ -28,6 +28,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{5BDE4EF6-A62D-429B-82A3-1D04D7E35066}"
 	ProjectSection(SolutionItems) = preProject
 		..\.github\workflows\commit-linting.yml = ..\.github\workflows\commit-linting.yml
+		..\.github\workflows\build-and-test.yml = ..\.github\workflows\build-and-test.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hooks.Worker", "Hooks.Worker\Hooks.Worker.csproj", "{9A904FC0-99E1-4231-9F43-0B1A18D0F504}"
