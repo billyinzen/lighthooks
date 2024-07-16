@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using Hooks.Service.Infrastructure;
 
 namespace Hooks.Service;
 
+[ExcludeFromCodeCoverage]
 public class Program
 {
     public static void Main(string[] args)
