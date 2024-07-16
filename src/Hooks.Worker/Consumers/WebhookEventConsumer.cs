@@ -15,7 +15,7 @@ public class WebhookEventConsumer : IConsumer<WebhookEvent>
     
     public Task Consume(ConsumeContext<WebhookEvent> context)
     {
-        _logger.LogInformation(JsonSerializer.Serialize(context.Message));
+        _logger.LogInformation("Message Received: {content}", JsonSerializer.Serialize(context.Message));
         return Task.CompletedTask;
     }
 }

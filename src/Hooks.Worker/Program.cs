@@ -1,11 +1,8 @@
-using Hooks.Common;
-using Hooks.Worker;
+using Hooks.Worker.Infrastructure;
 
-var builder = Host.CreateApplicationBuilder(args);
-builder.Configuration.AddConfiguration(new ConfigurationBuilder().AddEnvironmentVariables().Build());
-
-builder.Services.AddHooksServices(builder.Configuration);
-builder.Services.AddHostedService<Worker>();
+var builder = Host.CreateApplicationBuilder(args)
+    .AddConfiguredLogging()
+    .AddConfiguredServices();
 
 var host = builder.Build();
 host.Run();

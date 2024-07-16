@@ -1,23 +1,18 @@
 namespace Hooks.Worker;
 
-public class Worker : BackgroundService
+/// <summary>Worker service keeping application alive until a stop signal is received</summary>
+/// <param name="logger">The service logger</param>
+/// <remarks>Trying out primary constructor here, I'm not sure about it...</remarks>
+public class Worker(ILogger<Worker> logger) : BackgroundService
 {
-    private readonly ILogger<Worker> _logger;
-
-    public Worker(ILogger<Worker> logger)
-    {
-        _logger = logger;
-    }
-
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            if (_logger.IsEnabled(LogLevel.Information))
-            {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            }
-            await Task.Delay(1000, stoppingToken);
+            if (logger.IsEnabled(LogLevel.Debug))
+                logger.LogDebug("Worker running at: {time:s}", DateTimeOffset.Now);
+            
+            await Task.Delay(10000, stoppingToken);
         }
     }
 }
