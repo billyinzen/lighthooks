@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -5,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Hooks.Common;
 
+[ExcludeFromCodeCoverage]
 public static class Startup
 {
     public static IServiceCollection AddHooksServices(this IServiceCollection services, IConfiguration environment)
