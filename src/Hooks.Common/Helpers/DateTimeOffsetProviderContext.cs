@@ -2,9 +2,7 @@ using System.Collections;
 
 namespace Hooks.Common.Helpers;
 
-/// <summary>
-/// Execution context for the <see cref="DateTimeOffsetProvider"/> class
-/// </summary>
+/// <summary>Execution context for the <see cref="DateTimeOffsetProvider"/> class</summary>
 public class DateTimeOffsetProviderContext : IDisposable
 {
     internal DateTimeOffset Timestamp;
